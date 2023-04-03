@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.orderscreen.orderscreen.OrderScreenActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/uiTvToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/uiIvBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_baseline_navigate_before"
+                android:background="@drawable/rounded_shape"
+                android:elevation="10dp">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Cart"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/uiIvBack"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/uiSvOrderDetails"
+        app:layout_constraintStart_toStartOf="@+id/uiTvToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/uiTvToolbar"
+        app:layout_constraintEnd_toEndOf="@+id/uiTvToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/uiBtPlaceOrder">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/card_background"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/uiTvToolbar">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiLabelOrderDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="@string/str_order_details_label"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/uiEtOrderDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@color/white"
+                        android:ems="10"
+                        android:gravity="top|left"
+                        android:hint="@string/str_enter_orderdetails"
+                        android:inputType="text|textMultiLine"
+                        android:lines="5"
+                        android:padding="5dp"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/uiLabelOrderDetails"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLabelOrderDetails" />
+
+                    <View
+                        android:id="@+id/uiLine1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#D3D3D3"
+                        app:layout_constraintEnd_toEndOf="@+id/uiEtOrderDetails"
+                        app:layout_constraintStart_toStartOf="@+id/uiEtOrderDetails"
+                        app:layout_constraintTop_toBottomOf="@+id/uiEtOrderDetails" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTvAddImage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_camera_alt_24"
+                        android:drawablePadding="10dp"
+                        android:text="@string/str_add_images_optional"
+                        android:paddingVertical="10dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/uiLine1"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLine1" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/uiIvCamera"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_baseline_camera"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvAddImage"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTvAddImage" />
+
+                    <View
+                        android:id="@+id/uiLine2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#D3D3D3"
+                        app:layout_constraintEnd_toEndOf="@+id/uiIvCamera"
+                        app:layout_constraintStart_toStartOf="@+id/uiIvCamera"
+                        app:layout_constraintTop_toBottomOf="@+id/uiIvCamera" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTVPurchaseCost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_access_time"
+                        android:drawablePadding="10dp"
+                        android:paddingVertical="10dp"
+                        android:text="Purchase Cost"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvAddImage"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLine2" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/editTextTextPersonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="-45dp"
+                        android:hint="100.00 INR"
+                        android:inputType="textPersonName"
+                        android:minHeight="48dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/uiTVPurchaseCost"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/uiTVPurchaseCost"
+                        app:layout_constraintTop_toTopOf="@+id/uiTVPurchaseCost" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/appCompatImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/primary_green"
+                        android:src="@drawable/ic_baseline_arrow_drop_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+                        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+
+                    <View
+                        android:id="@+id/uiLine3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#D3D3D3"
+                        app:layout_constraintStart_toStartOf="@+id/uiTVPurchaseCost"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTVPurchaseCost" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTVPayment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_account_balance_wallet"
+                        android:drawablePadding="10dp"
+                        android:text="Payment "
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingVertical="10dp"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/uiTVPurchaseCost"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLine3" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiEtDeliveryMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Payment"
+                        android:padding="10dp"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/uiTVPayment"
+                        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                        app:layout_constraintTop_toTopOf="@+id/uiTVPayment" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/uiBtSelectPaymentMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/primary_green"
+                        android:src="@drawable/ic_baseline_arrow_drop_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/uiEtDeliveryMethod"
+                        app:layout_constraintEnd_toEndOf="@+id/appCompatImageButton"
+                        app:layout_constraintStart_toEndOf="@+id/uiEtDeliveryMethod"
+                        app:layout_constraintTop_toTopOf="@+id/uiEtDeliveryMethod" />
+                        />
+                    <View
+                        android:id="@+id/uiLine4"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#D3D3D3"
+                        app:layout_constraintEnd_toEndOf="@+id/uiTVPayment"
+                        app:layout_constraintStart_toStartOf="@+id/uiTVPayment"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTVPayment" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTvLabelDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_house_siding"
+                        android:drawablePadding="10dp"
+                        android:paddingVertical="10dp"
+                        android:text="Delivering to "
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/uiTVPayment"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLine4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTvDeliveryAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text=""
+                        app:layout_constraintEnd_toStartOf="@+id/uiIvEditDeliveryAddress"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvLabelDelivery"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTvLabelDelivery" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiBtSelectDeliveryLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_shape"
+                        android:text="Change"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/uiTvLabelDelivery"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/uiTvLabelDelivery" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/uiIvEditDeliveryAddress"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/uiBtSelectDeliveryLocation"
+                        app:layout_constraintStart_toStartOf="@+id/uiBtSelectDeliveryLocation"
+                        app:layout_constraintTop_toBottomOf="@+id/uiBtSelectDeliveryLocation"
+                        app:srcCompat="@drawable/ic_baseline_edit_note" />
+
+                    <View
+                        android:id="@+id/uiLine5"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_margin="10dp"
+                        android:background="#D3D3D3"
+                        app:layout_constraintEnd_toEndOf="@+id/uiTvDeliveryAddress"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvDeliveryAddress"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTvDeliveryAddress" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTvLabelPickupAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_house_siding"
+                        android:drawablePadding="10dp"
+                        android:text="Pick up "
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingVertical="10dp"
+                        android:layout_marginVertical="10dp"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvLabelDelivery"
+                        app:layout_constraintTop_toBottomOf="@+id/uiLine5" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiTvPickupAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text=""
+                        app:layout_constraintEnd_toStartOf="@+id/uiIvEditPickupAddress"
+                        app:layout_constraintStart_toStartOf="@+id/uiTvLabelPickupAddress"
+                        app:layout_constraintTop_toBottomOf="@+id/uiTvLabelPickupAddress" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/uiBtSelectPickupLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_shape"
+                        android:text="Change"
+                        android:textSize="12sp"
+                        android:padding="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/uiTvLabelPickupAddress"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/uiTvLabelPickupAddress" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/uiIvEditPickupAddress"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/uiBtSelectPickupLocation"
+                        app:layout_constraintStart_toStartOf="@+id/uiBtSelectPickupLocation"
+                        app:layout_constraintTop_toBottomOf="@+id/uiBtSelectPickupLocation"
+                        app:srcCompat="@drawable/ic_baseline_edit_note" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uiBtPlaceOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Place Order"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_shape"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/uiSvOrderDetails"
+        app:layout_constraintTop_toBottomOf="@+id/uiSvOrderDetails"
+        app:layout_constraintEnd_toEndOf="@+id/uiSvOrderDetails"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FoodOrderScreenPOC</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="str_enter_orderdetails">Enter your order details here..</string>
+    <string name="str_add_images_optional">Add images (Optional)</string>
+    <string name="str_order_details_label">Order Details</string>
+</resources>
